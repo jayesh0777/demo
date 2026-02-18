@@ -1,1 +1,2 @@
 # demo
+QR code
