@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin:0px;
+        padding:0px;
+         font-family: 'poppins', sans-serif;
+         box-sizing: border-box;
+    }
+    body{
+        background-color: aqua;
+    }
+    .container{
+        width:400px;
+         padding: 25px 35px;
+          position: absolute;
+          top:50%;
+          left:50%;
+           transform: translate(-50%,-50%);
+            background: #fff;
+            border-radius: 10px;
+    }
+    .container p{
+        font-weight: 600px;
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+    .container input{
+        width:100%;
+        height: 50px;
+        border:1px solid #40ba83;
+           outline: 0;
+           padding: 0px;
+           margin: 10px 0 20px;
+           border-radius: 5px;
+    }
+    .container button{
+         width:100%;
+          height: 50px;
+           background: goldenrod;
+           color: beige;
+           border:0px;
+           outline: 0px;
+           border-radius: 5px;
+            box-shadow: 0 10px 10px rgba(167, 120, 120, 0.9);
+       cursor: pointer;
+       margin: 20px 0;
+       font-weight: 500px;
+    }
+    #imgBox{
+       width:200px;
+       border-radius: 5px; 
+       max-height: 0;
+       overflow: hidden; 
+       transition: max-height 0s;
+    }
+    #imgBox img{
+        width:100%;
+         padding: 10px;
+
+    }
+    #imgBox.show-img{
+        max-height: 300px;
+        margin: 10px auto;
+        border:1px solid  black;
+    }
+</style>
+<body>
+    <div class="container">
+        <p>enter  a text or url </p>
+        <input type="text"placeholder="text or url"id="qrtext">
+        <div id="imgBox">
+            <img src=""id="qrimage">
+        </div>
+        <button onclick="generateQR()">generate QR code</button>
+    </div>
+</body>
+<script>
+    let qrimage=document.getElementById("qrimage");
+    let imgBox=document.getElementById("imgBox");
+    let qrtext=document.getElementById("qrtext");
+
+    function generateQR(){
+       qrimage.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+ qrtext.value;
+       imgBox.classList.add("show-img");
+
+    }
+</script>
+</html>
